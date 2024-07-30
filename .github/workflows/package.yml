@@ -34,16 +34,13 @@ jobs:
         <plist version="1.0">
         <dict>
             <key>method</key>
-            <string>app-store</string>
-            <key>teamID</key>
-            <string>YourTeamID</string>
-            <key>provisioningProfiles</key>
-            <dict>
-                <key>com.yourcompany.yourapp</key>
-                <string>YourProvisioningProfile</string>
-            </dict>
+            <string>development</string>
             <key>signingStyle</key>
             <string>automatic</string>
+            <key>stripSwiftSymbols</key>
+            <true/>
+            <key>compileBitcode</key>
+            <false/>
         </dict>
         </plist>' > ExportOptions.plist
       
