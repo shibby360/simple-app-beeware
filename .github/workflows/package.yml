@@ -20,14 +20,12 @@ jobs:
         python -m venv venv
         source venv/bin/activate
         pip install briefcase
-    - name: Install Xcode
-      run: |
-        xcode-select --install
 
     - name: Build iOS app
       run: |
         source venv/bin/activate
         briefcase package iOS
+        briefcase open iOS
 
     - name: Commit and push changes
       env:
