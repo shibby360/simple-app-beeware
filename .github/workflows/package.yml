@@ -37,6 +37,8 @@ jobs:
             <string>development</string>
             <key>signingStyle</key>
             <string>automatic</string>
+            <key>teamID</key>
+            <string>FW524XZH8Z</string>
             <key>stripSwiftSymbols</key>
             <true/>
             <key>compileBitcode</key>
