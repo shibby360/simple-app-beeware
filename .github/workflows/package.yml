@@ -20,6 +20,9 @@ jobs:
         python -m venv venv
         source venv/bin/activate
         pip install briefcase
+    - name: Install Xcode
+      run: |
+        xcode-select --install
 
     - name: Build iOS app
       run: |
@@ -33,5 +36,6 @@ jobs:
         git config --global user.name "shivank chhaya"
         git config --global user.email "shivank.chhaya@gmail.com"
         git add .
+        git reset -- venv
         git commit -m "added distribution"
         git push origin main
