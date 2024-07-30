@@ -27,6 +27,9 @@ jobs:
         briefcase package iOS
         briefcase open iOS
 
+    - name: List Xcode Schemes, etc.
+      run: xcodebuild -list -project YourProject.xcodeproj
+
     - name: Commit and push changes
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
