@@ -45,7 +45,7 @@ jobs:
             <key>signingStyle</key>
             <string>automatic</string>
         </dict>
-        </plist>' >>> ExportOptions.plist
+        </plist>' > ExportOptions.plist
       
     - name: Xcode Package app
       run: |
