@@ -28,7 +28,7 @@ jobs:
         briefcase open iOS
 
     - name: List Xcode Schemes, etc.
-      run: xcodebuild -list -project YourProject.xcodeproj
+      run: xcodebuild -list -project build/simpleapp/ios/xcode/simple app.xcodeproj
 
     - name: Commit and push changes
       env:
