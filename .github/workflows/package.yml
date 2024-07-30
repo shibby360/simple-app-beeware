@@ -34,11 +34,9 @@ jobs:
         <plist version="1.0">
         <dict>
             <key>method</key>
-            <string>validation</string>
+            <string>app-store</string>
             <key>signingStyle</key>
             <string>automatic</string>
-            <key>teamID</key>
-            <string>FW524XZH8Z</string>
             <key>stripSwiftSymbols</key>
             <true/>
             <key>compileBitcode</key>
