@@ -27,8 +27,31 @@ jobs:
         briefcase package iOS
         briefcase open iOS
 
-    - name: List Xcode Schemes, etc.
-      run: xcodebuild -list -project "build/simpleapp/ios/xcode/simple app.xcodeproj"
+    - name: Create ExportOptions.plist
+      run: |
+        echo '<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+            <key>method</key>
+            <string>app-store</string>
+            <key>teamID</key>
+            <string>YourTeamID</string>
+            <key>provisioningProfiles</key>
+            <dict>
+                <key>com.yourcompany.yourapp</key>
+                <string>YourProvisioningProfile</string>
+            </dict>
+            <key>signingStyle</key>
+            <string>automatic</string>
+        </dict>
+        </plist>' >>> ExportOptions.plist
+      
+    - name: Xcode Package app
+      run: |
+        xcodebuild -project "build/simpleapp/ios/xcode/simple app.xcodeproj" -scheme "simple app" -destination 'generic/platform=iOS' -configuration Release clean build
+        xcodebuild -project "build/simpleapp/ios/xcode/simple app.xcodeproj" -scheme "simple app" -archivePath "./build/simple app.xcarchive" archive
+        xcodebuild -exportArchive -archivePath "./build/simple app.xcarchive" -exportPath ./build/ -exportOptionsPlist ExportOptions.plist
 
     - name: Commit and push changes
       env:
